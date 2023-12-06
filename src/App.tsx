@@ -5,10 +5,10 @@ import { ThemeProvider } from './components/ui/theme-provider'
 
 export function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      <BrowserRouter>
         <Router />
-      </ThemeProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
