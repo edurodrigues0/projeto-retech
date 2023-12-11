@@ -8,7 +8,9 @@ export function Router() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/form" element={<Form />} />
-      <Route path="/success" element={<Success />} />
+      <Route path="/success">
+        <Route path=":requestId" element={<Success />} />
+      </Route>
     </Routes>
   )
 }

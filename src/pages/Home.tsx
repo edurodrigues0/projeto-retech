@@ -1,4 +1,4 @@
-import { ModeToogle } from '@/components/ModeToogle'
+import { MadeBy } from '@/components/MadeBy'
 import heroSVG from '../../public/hero.svg'
 import { Button } from '@/components/ui/button'
 import { useNavigate } from 'react-router-dom'
@@ -7,9 +7,7 @@ export function Home() {
   const navigate = useNavigate()
 
   return (
-    <div className="h-screen w-screen p-12 gap-36 flex items-center justify-evenly relative max-sm:flex-col-reverse max-sm:justify-center max-sm:gap-16">
-      <ModeToogle />
-
+    <div className="h-screen w-screen p-5 gap-36 flex items-center justify-evenly relative max-sm:flex-col-reverse max-sm:justify-center max-sm:gap-16">
       <div className="flex flex-col gap-10 max-sm:items-center">
         <h1 className="text-5xl font-bold max-sm:text-3xl leading-10">
           Projeto Re-Tech 💻🚀
@@ -22,18 +20,19 @@ export function Home() {
         </p>
 
         <div className="flex gap-5">
-          <Button onClick={() => navigate('/form')} className="w-28">
+          <Button
+            onClick={() => navigate('/form')}
+            className="w-28 max-sm:w-20"
+          >
             Doar
           </Button>
-          <Button className="w-28">Instituto</Button>
+          <Button className="w-28 max-sm:w-20">Instituto</Button>
         </div>
       </div>
 
       <img className="w-96 max-sm:w-56" src={heroSVG} alt="computador" />
 
-      <span className="absolute bottom-5 left-10">
-        Feito com 💙 por <span className="font-bold">Eduardo Rodrigues</span>
-      </span>
+      <MadeBy />
     </div>
   )
 }
