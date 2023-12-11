@@ -6,7 +6,7 @@ import { ModeToogle } from './components/ModeToogle'
 
 export function App() {
   return (
-    <ThemeProvider>
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <BrowserRouter>
         <Router />
         <ModeToogle />
