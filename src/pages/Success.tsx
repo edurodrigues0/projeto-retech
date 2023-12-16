@@ -1,30 +1,30 @@
-import { Button } from "@/components/ui/button";
-import successSVG from "../../public/success.svg";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Button } from '@/components/ui/button'
+import successSVG from '../../public/success.svg'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 type Donor = {
   0: {
-    ID: string;
-    Nome: string;
-    Componente: string;
-  };
-};
+    ID: string
+    Nome: string
+    Componente: string
+  }
+}
 
 export function Success() {
-  const { requestId } = useParams();
-  const [donor, setDonor] = useState<Donor>();
-  const navigate = useNavigate();
+  const { requestId } = useParams()
+  const [donor, setDonor] = useState<Donor>()
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_SHEET_API_URL}/query?ID=${requestId}`)
-      .then((response) => setDonor(response.data));
-  }, [requestId]);
+      .then((response) => setDonor(response.data))
+  }, [requestId])
 
   if (!donor) {
-    return;
+    return
   }
 
   return (
@@ -40,10 +40,10 @@ export function Success() {
           peças de computadores que você gentilmente ofereceu. Sua contribuição
           é verdadeiramente inestimável e fará uma diferença significativa na
           experiência educacional dos nossos alunos. A generosidade que você
-          demonstrou ao compartilhar{" "}
+          demonstrou ao compartilhar{' '}
           <span className="font-bold">
             {donor[0].Componente.toLocaleLowerCase()}
-          </span>{" "}
+          </span>{' '}
           não apenas enriquecerá nosso laboratório de informática, mas também
           proporcionará aos alunos acesso a recursos tecnológicos essenciais.
           Seu gesto solidário não só fortalece a infraestrutura da instituição,
@@ -65,7 +65,7 @@ export function Success() {
         </span>
 
         <Button
-          onClick={() => navigate("/")}
+          onClick={() => navigate('/')}
           className="w-32 font-bold text-lg max-sm:w-full max-sm:text-sm max-sm:font-normal"
         >
           Voltar :D
@@ -78,5 +78,5 @@ export function Success() {
         alt="Menina segurando um balão"
       />
     </div>
-  );
+  )
 }
